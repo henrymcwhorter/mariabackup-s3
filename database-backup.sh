@@ -3,6 +3,8 @@ set -o errexit
 set -o pipefail
 
 # Required Variables
+TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
+
 
 MARIADB_USER=root
 MARIADB_PASSWORD=
@@ -34,7 +36,7 @@ cd $BACKUP_BASE
 tar -zcvf $BACKUP_NAME.tar.gz $BACKUP_NAME 
 
 # Upload to s3
-s3cmd put $BACKUP_BASE/$BACKUP_NAME.tar.gz s3://$S3_BUCKET/$S3_FOLDER/
+s3cmd put $BACKUP_BASE/$BACKUP_NAME.tar.gz s3://$S3_BUCKET/$S3_FOLDER/$BACKUP_NAME-$TIMESTAMP.tar.gz
 
 # Prep for next backup
 rm -rf $BACKUP_DIR
