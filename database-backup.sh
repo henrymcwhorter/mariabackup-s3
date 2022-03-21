@@ -12,7 +12,6 @@ MARIADB_BACKUPCMD=/usr/bin/mariabackup
 BACKUP_BASE=/root/backup
 BACKUP_NAME=mariadb
 BACKUP_DIR=$BACKUP_BASE/$BACKUP_NAME
-BACKUP_LOG=/tmp/backup.log
 S3_BUCKET=
 S3_FOLDER=
 
